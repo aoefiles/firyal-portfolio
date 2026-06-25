@@ -1,9 +1,9 @@
 export const certificatesData = [
   {
     id: 1,
-    title: "More Certifications Coming Soon",
-    issuer: "Continuous Learning Journey",
-    year: "Updating...",
-    img: "/coming-soon.jpg"
+    title: "Copyright Registration – Pro.log: Interactive Visual Productivity Sharing Platform",
+    issuer: "Directorate General of Intellectual Property (DGIP), Indonesia",
+    year: "2026",
+    img: "/hki.jpeg"
   }
 ];
