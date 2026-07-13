@@ -25,7 +25,7 @@ export const experienceData = [
 },
   {
   id: 2,
-  type: "Organization",
+  type: "Committee",
   role: "Head of Media & Branding",
   company: "Soedirman Technophoria National Seminar & Competition",
   period: "May - Dec 2025",
@@ -44,7 +44,7 @@ export const experienceData = [
 },
   {
   id: 3,
-  type: "Organization",
+  type: "Committee",
   role: "Project Officer",
   company: "Workshop Informatics - Exploring React JS",
   period: "Nov 2024",
