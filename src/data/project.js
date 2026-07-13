@@ -35,7 +35,7 @@ export const projectsData = [
     "/images/food9.jpg"
   ],
 
-  githubLink: "https://colab.research.google.com/drive/138LUT4ho34LupJG164ZdUcg7pF2sP69Q?usp=sharing",
+  githubLink: "https://github.com/aoefiles/food-demand-prediction-using-machine-learning",
   liveLink: null,
 
   descTitle1: "Project Background",
@@ -92,7 +92,7 @@ export const projectsData = [
     "/images/lineup8.jpg"
   ],
 
-  githubLink: "https://colab.research.google.com/drive/1aqiJsqDKcoPmfEA6LdX-uvbaTdCnjjw-?usp=sharing",
+  githubLink: "https://github.com/aoefiles/Optimasi-LineUp-Konser-Musik",
   liveLink: "https://concert-harmony-engine.lovable.app/",
 
   descTitle1: "Project Background",
