@@ -15,7 +15,7 @@ export const certificatesData = [
     issuer: "Huawei ICT Academy", 
     year: "2026", 
     icon: "ph ph-certificate",
-    image: "/images/cert-hki.jpeg" 
+    image: "/images/cert-data-analytics.jpg" 
   },
   { 
     id: 3, 
@@ -23,6 +23,6 @@ export const certificatesData = [
     issuer: "Huawei ICT Academy", 
     year: "2026", 
     icon: "ph ph-certificate",
-    image: "/images/cert-hki.jpeg" 
+    image: "/images/cert-data-analytics.jpg" 
   }
 ];
