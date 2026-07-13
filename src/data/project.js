@@ -150,8 +150,8 @@ export const projectsData = [
     "/images/prolog7.jpg"
   ],
 
-  githubLink: null,
-  liveLink: null,
+  githubLink: "https://github.com/aoefiles/prolog-app",
+  liveLink: "https://your-prolog.vercel.app/",
 
   descTitle1: "Product Discovery",
 
