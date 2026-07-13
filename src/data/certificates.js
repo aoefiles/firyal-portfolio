@@ -11,7 +11,7 @@ export const certificatesData = [
   },
   { 
     id: 2, 
-    title: "Data Analytics and Management", 
+    title: "Data Management and Analytics", 
     issuer: "Huawei ICT Academy", 
     year: "2026", 
     icon: "ph ph-certificate",
