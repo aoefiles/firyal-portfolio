@@ -82,14 +82,7 @@ export const projectsData = [
     "An optimization system that generates the ideal concert lineup by balancing artist popularity, audience energy flow, and headliner placement using Genetic Algorithm.",
 
   gallery: [
-    "/images/lineup1.jpg",
-    "/images/lineup2.jpg",
-    "/images/lineup3.jpg",
-    "/images/lineup4.jpg",
-    "/images/lineup5.jpg",
-    "/images/lineup6.jpg",
-    "/images/lineup7.jpg",
-    "/images/lineup8.jpg"
+    "/images/lineup1.jpg"
   ],
 
   githubLink: "https://github.com/aoefiles/Optimasi-LineUp-Konser-Musik",
