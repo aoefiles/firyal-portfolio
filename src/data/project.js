@@ -207,11 +207,7 @@ export const projectsData = [
     "/images/arkiva2.jpg",
     "/images/arkiva3.jpg",
     "/images/arkiva4.jpg",
-    "/images/arkiva5.jpg",
-    "/images/arkiva6.jpg",
-    "/images/arkiva7.jpg",
-    "/images/arkiva8.jpg",
-    "/images/arkiva9.jpg"
+    "/images/arkiva5.jpg"
   ],
 
   githubLink: null,
