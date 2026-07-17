@@ -277,20 +277,23 @@ body.light-mode nav a.active {
 .theme-toggle-btn:hover { color: var(--text-primary); background: var(--element-bg); transform: rotate(30deg); }
 
 /* =========================================
-   MOBILE: THE "APP TAB BAR" (Monochrome Fluid)
+   MOBILE: THE "APP TAB BAR" (Fixed & Centered)
 ========================================= */
 @media (max-width: 768px) {
     nav { 
         position: fixed; 
         top: auto; 
         bottom: 1.2rem; 
-        left: 50%;
-        transform: translateX(-50%); 
-        margin-bottom: 0;
+        
+        /* PERBAIKAN UTAMA: Menengahkan tanpa 'transform' agar kebal animasi */
+        left: 0;
+        right: 0;
+        margin: 0 auto; 
+        
         width: 92%; 
         max-width: 400px;
-        justify-content: space-between; 
-        padding: 0.5rem 0.8rem;
+        justify-content: space-around; /* Lebih rapi agar tidak menabrak tepi */
+        padding: 0.5rem 0.6rem;
         
         box-shadow: 
             0 -10px 40px rgba(0, 0, 0, 0.5), 
@@ -299,7 +302,8 @@ body.light-mode nav a.active {
     
     nav.scrolled {
         bottom: 0.8rem;
-        transform: translateX(-50%) scale(0.97); 
+        /* Karena sudah fix di tengah, kita tinggal kecilkan sedikit ukurannya */
+        transform: scale(0.96) translateY(3px); 
         box-shadow: 
             0 -15px 50px rgba(0, 0, 0, 0.7), 
             inset 0 1px 1px rgba(255, 255, 255, 0.2);
@@ -311,13 +315,13 @@ body.light-mode nav a.active {
     nav a {
         flex-direction: column; 
         padding: 0.5rem 0.2rem; 
-        border-radius: 16px; 
+        border-radius: 14px; 
         gap: 0.2rem;
         flex: 1; 
         justify-content: center;
     }
 
-    nav a i { font-size: 1.3rem; margin: 0; }
+    nav a i { font-size: 1.35rem; margin: 0; }
 
     .nav-text { 
         display: block !important; 
@@ -339,9 +343,9 @@ body.light-mode nav a.active {
     .nav-divider { display: none; } 
 
     .theme-toggle-btn {
-        flex: 0.5; 
+        flex: 0.6; /* Disesuaikan porsinya agar pas di layar kecil */
         padding: 0.5rem;
-        font-size: 1.3rem;
+        font-size: 1.35rem;
     }
 }
 
