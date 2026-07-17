@@ -45,6 +45,10 @@ export default function ContactPage() {
           </div>
         </div>
       </main>
+      
+      <footer className="fade-in visible">
+        <p>&copy; 2026 Firyal Aufa F. All rights reserved.</p>
+      </footer>
     </>
   );
 }
