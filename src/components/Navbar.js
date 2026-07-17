@@ -1,14 +1,13 @@
 // src/components/Navbar.js
-
 "use client";
 import Link from 'next/link';
-import { usePathname } from 'next/navigation'; // Untuk mendeteksi halaman aktif
-import { useEffect, useState, useRef } from 'react'; // Tambahkan useRef
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function Navbar() {
   const pathname = usePathname(); 
   const [isLightMode, setIsLightMode] = useState(false);
-  const navRef = useRef(null); // Gunakan useRef untuk elemen navbar
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const currentTheme = localStorage.getItem('theme');
@@ -17,24 +16,14 @@ export default function Navbar() {
       setIsLightMode(true);
     }
 
-    // Intersection Observer untuk animasi 'on-scroll'
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible'); // Tambahkan kelas 'visible' saat masuk ke viewport
-        }
-      });
-    });
-
-    if (navRef.current) {
-      observer.observe(navRef.current); // Pantau elemen navbar
-    }
-
-    return () => {
-      if (navRef.current) {
-        observer.unobserve(navRef.current); // Berhenti pantau saat komponen di-unmount
-      }
+    const handleScroll = () => {
+      // Efek mengecil/mendalam aktif setelah scroll 40px
+      if (window.scrollY > 40) setIsScrolled(true);
+      else setIsScrolled(false);
     };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleTheme = () => {
@@ -50,17 +39,34 @@ export default function Navbar() {
   };
 
   return (
-    <nav ref={navRef} className="fade-in visible animate-on-scroll"> {/* Tambahkan ref dan kelas animate-on-scroll */}
-      <Link href="/" className={pathname === '/' ? 'active' : ''}>Home</Link>
-      <Link href="/about" className={pathname === '/about' ? 'active' : ''}>About</Link>
-      <Link href="/project" className={pathname === '/project' ? 'active' : ''}>Project</Link>
-      <Link href="/contact" className={pathname === '/contact' ? 'active' : ''}>Contact</Link>
+    <nav className={`fade-in visible animate-on-scroll ${isScrolled ? 'scrolled' : ''}`}>
       
-      <i 
-        id="theme-btn" 
-        className={`ph theme-toggle ${isLightMode ? 'ph-moon' : 'ph-sun'}`}
-        onClick={toggleTheme}
-      ></i>
+      <Link href="/" className={pathname === '/' ? 'active' : ''}>
+        <i className="ph ph-house"></i>
+        <span className="nav-text">Home</span>
+      </Link>
+      
+      <Link href="/about" className={pathname === '/about' ? 'active' : ''}>
+        <i className="ph ph-user"></i>
+        <span className="nav-text">About</span>
+      </Link>
+      
+      <Link href="/project" className={pathname === '/project' ? 'active' : ''}>
+        <i className="ph ph-briefcase"></i>
+        <span className="nav-text">Project</span>
+      </Link>
+      
+      <Link href="/contact" className={pathname === '/contact' ? 'active' : ''}>
+        <i className="ph ph-envelope-simple"></i>
+        <span className="nav-text">Contact</span>
+      </Link>
+      
+      <div className="nav-divider"></div>
+      
+      <button className="theme-toggle-btn" onClick={toggleTheme} aria-label="Toggle Theme">
+        <i className={`ph ${isLightMode ? 'ph-moon' : 'ph-sun'}`}></i>
+      </button>
+      
     </nav>
   );
 }

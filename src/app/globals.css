@@ -167,59 +167,202 @@ body::after { bottom: -50px; right: -100px; }
 .delay-3 { transition-delay: 0.3s; }
 
 /* =========================================
-   4. NAVIGATION
+   4. NAVIGATION (Ultra-Pro Monochrome Edition)
 ========================================= */
 nav {
-    background: var(--nav-bg); 
-    backdrop-filter: blur(28px); 
-    -webkit-backdrop-filter: blur(28px);
+    background: rgba(15, 15, 18, 0.4); 
+    backdrop-filter: blur(40px) saturate(150%); 
+    -webkit-backdrop-filter: blur(40px) saturate(150%);
     
-    padding: 0.8rem 2rem;
-    border-radius: var(--radius-pill);
+    padding: 0.6rem 0.8rem;
+    border-radius: 100px;
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 0.4rem;
     margin-bottom: 4rem;
+    
     position: sticky;
     top: 2rem;
-    z-index: 100;
-    transition: background-color 0.5s ease, border-color 0.5s ease;
+    z-index: 9999;
     
-    border: 1px solid var(--glass-border); 
-    box-shadow: var(--glass-shadow), var(--inner-glow); 
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    box-shadow: 
+        0 24px 48px -12px rgba(0, 0, 0, 0.6), 
+        inset 0 1px 1px rgba(255, 255, 255, 0.1); 
+    
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); 
+    transform-origin: center top;
 }
 
-nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.3s ease; }
-nav a:hover, nav a.active { color: var(--text-primary); font-weight: 600; }
-.theme-toggle { cursor: pointer; color: var(--text-secondary); font-size: 1.2rem; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); margin-left: 1rem; }
-.theme-toggle:hover { color: var(--text-primary); transform: rotate(45deg) scale(1.1); }
+nav.scrolled {
+    background: rgba(10, 10, 12, 0.7); 
+    border-color: rgba(255, 255, 255, 0.15); 
+    box-shadow: 
+        0 30px 60px -10px rgba(0, 0, 0, 0.8), 
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    transform: scale(0.98) translateY(-4px); 
+}
+
+nav a { 
+    color: var(--text-secondary); 
+    text-decoration: none; 
+    font-size: 0.85rem; 
+    font-weight: 500; 
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.2rem;
+    border-radius: 100px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+}
+
+nav a i { font-size: 1.15rem; transition: transform 0.3s ease; }
+nav a:hover { color: var(--text-primary); background: rgba(255, 255, 255, 0.05); }
+nav a:hover i { transform: translateY(-2px); }
+
+/* =========================================
+   STATUS AKTIF MONOKROM (Frosted White Glass)
+========================================= */
+nav a.active { 
+    color: #ffffff; /* Teks putih solid bercahaya */
+    font-weight: 600; 
+    background: rgba(255, 255, 255, 0.08); /* Kaca putih tipis */
+    
+    /* Pinggiran putih transparan untuk efek memotong kaca di belakangnya */
+    box-shadow: 
+        inset 0 0 0 1px rgba(255, 255, 255, 0.16), 
+        0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nav-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 0 0.4rem;
+}
+
+/* =========================================
+   LIGHT MODE ADAPTATION (Monochrome)
+========================================= */
+body.light-mode nav {
+    background: rgba(250, 250, 252, 0.6);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08), inset 0 2px 4px rgba(255, 255, 255, 0.9);
+}
+body.light-mode nav.scrolled {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.12), inset 0 2px 4px rgba(255, 255, 255, 1);
+}
+body.light-mode .nav-divider { background: rgba(0, 0, 0, 0.1); }
+body.light-mode nav a:hover { background: rgba(0, 0, 0, 0.04); }
+
+/* Status Aktif Light Mode (Translucent Charcoal Glass) */
+body.light-mode nav a.active {
+    color: #000000; /* Teks hitam pekat */
+    background: rgba(0, 0, 0, 0.06); /* Kaca gelap tipis */
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.theme-toggle-btn { 
+    cursor: pointer; 
+    color: var(--text-secondary); 
+    font-size: 1.25rem; 
+    padding: 0.55rem;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+    display: flex; align-items: center; justify-content: center;
+}
+.theme-toggle-btn:hover { color: var(--text-primary); background: var(--element-bg); transform: rotate(30deg); }
+
+/* =========================================
+   MOBILE: THE "APP TAB BAR" (Monochrome Fluid)
+========================================= */
+@media (max-width: 768px) {
+    nav { 
+        position: fixed; 
+        top: auto; 
+        bottom: 1.2rem; 
+        left: 50%;
+        transform: translateX(-50%); 
+        margin-bottom: 0;
+        width: 92%; 
+        max-width: 400px;
+        justify-content: space-between; 
+        padding: 0.5rem 0.8rem;
+        
+        box-shadow: 
+            0 -10px 40px rgba(0, 0, 0, 0.5), 
+            inset 0 1px 1px rgba(255, 255, 255, 0.15); 
+    }
+    
+    nav.scrolled {
+        bottom: 0.8rem;
+        transform: translateX(-50%) scale(0.97); 
+        box-shadow: 
+            0 -15px 50px rgba(0, 0, 0, 0.7), 
+            inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    }
+    
+    body.light-mode nav { box-shadow: 0 -10px 40px rgba(0,0,0,0.06), inset 0 2px 4px rgba(255,255,255,0.9); }
+    body.light-mode nav.scrolled { box-shadow: 0 -15px 50px rgba(0,0,0,0.1), inset 0 2px 4px rgba(255,255,255,1); }
+
+    nav a {
+        flex-direction: column; 
+        padding: 0.5rem 0.2rem; 
+        border-radius: 16px; 
+        gap: 0.2rem;
+        flex: 1; 
+        justify-content: center;
+    }
+
+    nav a i { font-size: 1.3rem; margin: 0; }
+
+    .nav-text { 
+        display: block !important; 
+        font-size: 0.65rem; 
+        font-weight: 500;
+        text-align: center;
+    }
+
+    nav a.active {
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+    }
+    
+    body.light-mode nav a.active {
+        background: rgba(0, 0, 0, 0.06);
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+    }
+
+    .nav-divider { display: none; } 
+
+    .theme-toggle-btn {
+        flex: 0.5; 
+        padding: 0.5rem;
+        font-size: 1.3rem;
+    }
+}
 
 /* =========================================
    5. ANIMASI 'ON-SCROLL'
 ========================================= */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Kelas Elemen yang Ingin Dianimasikan */
 .animate-on-scroll {
     opacity: 0; 
     transform: translateY(20px); 
-    transition: opacity 0.6s ease, transform 0.6s ease; 
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
 }
 
-/* Kelas Saat Elemen Masuk ke Viewport */
 .animate-on-scroll.visible {
     opacity: 1; 
     transform: translateY(0); 
-    animation: fadeInUp 0.6s ease;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* =========================================
