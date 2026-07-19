@@ -144,7 +144,7 @@ body {
     position: relative; 
 }
 
-/* Dot Grid Background */
+/* Background */
 body::before, body::after {
     content: ''; position: fixed; width: 450px; height: 450px;
     /* background-image: radial-gradient(var(--pattern-color) 1.5px, transparent 1.5px); */
@@ -167,10 +167,9 @@ body::after { bottom: -50px; right: -100px; }
 .delay-3 { transition-delay: 0.3s; }
 
 /* =========================================
-   4. NAVIGATION (High-Contrast Solid Edition)
+   4. NAVIGATION 
 ========================================= */
 nav {
-    /* Background 96% Solid: Memblokir gangguan dari gambar di belakang */
     background: rgba(12, 12, 14, 0.96); 
     backdrop-filter: blur(20px); 
     -webkit-backdrop-filter: blur(20px);
@@ -186,7 +185,6 @@ nav {
     top: 2rem;
     z-index: 9999;
     
-    /* Garis batas kaca diperterang agar navbar punya bentuk (shape) yang jelas */
     border: 1px solid rgba(255, 255, 255, 0.2); 
     box-shadow: 
         0 24px 48px -12px rgba(0, 0, 0, 1), 
@@ -206,7 +204,6 @@ nav.scrolled {
 }
 
 nav a { 
-    /* Warna teks default sedikit diterangkan agar lebih terbaca */
     color: #a1a1a6; 
     text-decoration: none; 
     font-size: 0.85rem; 
@@ -223,14 +220,12 @@ nav a i { font-size: 1.15rem; transition: transform 0.3s ease; }
 nav a:hover { color: #ffffff; background: rgba(255, 255, 255, 0.1); }
 nav a:hover i { transform: translateY(-2px); }
 
-/* =========================================
-   STATUS AKTIF: HIGH-CONTRAST INVERT
-========================================= */
+/* STATUS AKTIF: HIGH-CONTRAST INVERT */
 nav a.active { 
-    color: #000000; /* Teks Hitam Pekat */
+    color: #000000; 
     font-weight: 700; 
-    background: #ffffff; /* Background Putih Solid */
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3); /* Cahaya putih memancar keluar */
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3); 
 }
 
 .nav-divider {
@@ -240,9 +235,7 @@ nav a.active {
     margin: 0 0.4rem;
 }
 
-/* =========================================
-   LIGHT MODE ADAPTATION (High-Contrast)
-========================================= */
+/* LIGHT MODE ADAPTATION (High-Contrast) */
 body.light-mode nav {
     background: rgba(255, 255, 255, 0.96);
     border-color: rgba(0, 0, 0, 0.1);
@@ -259,8 +252,8 @@ body.light-mode nav a:hover { color: #000000; background: rgba(0, 0, 0, 0.05); }
 
 /* Status Aktif Light Mode (Solid Black) */
 body.light-mode nav a.active {
-    color: #ffffff; /* Teks Putih Pekat */
-    background: #121214; /* Background Hitam Solid */
+    color: #ffffff; 
+    background: #121214; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -279,9 +272,7 @@ body.light-mode nav a.active {
 body.light-mode .theme-toggle-btn { color: #555555; }
 body.light-mode .theme-toggle-btn:hover { color: #000000; background: rgba(0,0,0,0.05); }
 
-/* =========================================
-   MOBILE: HIGH-CONTRAST TAB BAR
-========================================= */
+/* MOBILE: HIGH-CONTRAST TAB BAR */
 @media (max-width: 768px) {
     nav { 
         position: fixed; 
@@ -295,11 +286,9 @@ body.light-mode .theme-toggle-btn:hover { color: #000000; background: rgba(0,0,0
         justify-content: space-around; 
         padding: 0.5rem 0.6rem;
         
-        /* Background & Border solid agar tidak bocor dari gambar/teks di belakangnya */
         background: rgba(12, 12, 14, 0.98);
         border: 1px solid rgba(255, 255, 255, 0.2);
         
-        /* Bayangan sangat besar dan gelap ke atas agar navbar "terpisah" dari halaman */
         box-shadow: 
             0 -20px 60px rgba(0, 0, 0, 0.9), 
             inset 0 1px 1px rgba(255, 255, 255, 0.25); 
@@ -324,7 +313,6 @@ body.light-mode .theme-toggle-btn:hover { color: #000000; background: rgba(0,0,0
 
     nav a {
         flex-direction: column; 
-        /* Padding diperbesar sedikit agar target tap (jari) lebih lebar dan nyaman */
         padding: 0.6rem 0.2rem; 
         border-radius: 14px; 
         gap: 0.25rem;
@@ -333,13 +321,13 @@ body.light-mode .theme-toggle-btn:hover { color: #000000; background: rgba(0,0,0
     }
 
     nav a i { 
-        font-size: 1.4rem; /* Ikon dibesarkan sedikit */
+        font-size: 1.4rem; 
         margin: 0; 
     } 
 
     .nav-text { 
         display: block !important; 
-        font-size: 0.7rem; /* Teks dibesarkan sedikit */
+        font-size: 0.7rem; 
         font-weight: 600;
         text-align: center;
     }

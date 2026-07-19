@@ -17,7 +17,6 @@ export default function Navbar() {
     }
 
     const handleScroll = () => {
-      // Efek mengecil/mendalam aktif setelah scroll 40px
       if (window.scrollY > 40) setIsScrolled(true);
       else setIsScrolled(false);
     };
